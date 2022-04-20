@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Formulaire</title>
+	
+</head>
+<body>
+	<h1>Contact</h1>
+	<p> Be called back for more information</p>
+	<form action="./exercice5-1.html" method="post" class="form-example" onsubmit="calculer()">
+		<label for="name">First name (*)</label>
+    	<input type="text" name="Name" id="name" required placeholder="Name" oninput="sessionStorage.setItem('username', this.value);">
+    	</br>
+    	</br>
+    	<label for="lastname">Last name (*)</label>
+    	<input type="text" name="lastname" id="lastname" required>
+    	</br>
+    	</br>
+    	<label for="contact">You want to be contacted by</label>
+    	<select name="contact" id="contact">
+           <option value="Phone">Phone</option>
+           <option value="email">E-mail</option>
+           <option value="fax">Fax</option>
+       </select>
+       </br>
+       </br>
+       <label for="phone">Phone number</label>
+    	<input type="text" name="phone" id="phone" autocomplete="on">>
+    	</br>
+    	</br>
+    	<label for="when">When (*)</label>
+    	<input type="date" name="when" id="when" required autocomplete="on"> >
+    	</br>
+    	</br>
+    	<label for="time">Between (*)</label>
+    	<input type="time" name="time" id="time" required value="07:00 PM"> and <input type="time" name="time" id="time" required value="07:00 PM">
+    	</br>
+    	<input type="range" name="range">
+    	</br>
+    	<input type="reset" value="annuler">
+    	<input type="submit" value="Envoyer">
+
+		
+
+      <script>
+      function calculer()
+      {
+        var comptloc=localStorage.getItem('username');
+        var comptses=sessionStorage.getItem('username');
+        if(localStorage.comptloc==null  && sessionStorage.comptses==null)
+             {
+        localStorage.comptloc=0; // même chose que localStorage.setItem('comptloc ', 0)
+        sessionStorage.comptses=0;
+        }
+        else{
+         localStorage.comptloc++; 
+          // en cas où la valeur est texte ça peut ne pas fonctionner utiliser la conversion en nombre comme suit:
+         var compt=Number(sessionStorage.comptses);
+         compt++;
+         sessionStorage.comptses=compt;
+        }
+        alert(compt);
+      }
+      </script>
+	</form>
+</body>
+</html>

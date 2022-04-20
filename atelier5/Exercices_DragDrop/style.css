@@ -1,0 +1,14 @@
+body{
+	background-image: url("./Images/tassecafe.jpg");
+
+
+}
+#div1 {
+  width:100px;
+  height:100px;
+  padding: 10px;
+  border: 1px transparent #aaaaaa;
+  position: absolute;
+  right:50%;
+  bottom:40%;
+}

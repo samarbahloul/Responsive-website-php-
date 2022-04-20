@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+</script>
+<title>Exercice Drag & Drop</title>
+</head>
+
+<body>
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  <img id="drag1" src="./Images/madelaine.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+
+</body>
+</html>

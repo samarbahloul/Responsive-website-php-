@@ -1,0 +1,109 @@
+<!DOCTYPE html> 
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>FORMATION</title>
+    <link rel="stylesheet"href="./style.css">
+    <script >
+      function verif()
+      {
+        var tl=document.frm.liste.options.length;
+        var taille =document.frm.cin.value.length;
+        val n=0;
+        if(document.frm.prenom.value=="")
+          {
+            alert("Veuillez saisir votre nom et prénom");
+            return false;
+          }
+        if(document.frm.cin.value=="")
+          {
+            alert("Veuillez saisir votre cin");
+            return false;
+          }
+        for(i=0;i<taille;i++)
+        {
+          if(document.frm.cin.value.charAt(i)<"0"||document.frm.cin.value.charAt(i)>"9"||taille!=8)
+          {
+            alert("le numero CIN est incorrect");
+          }
+        }
+        if(document.frm.adresse.value=="")
+        {
+          alert("Veuillez saisir votre adresse mail");
+        }
+        if(document.frm.adresse.value.indexOf(@)==-1)
+        {
+          alert("Adresse mail invalide");
+        }
+        for(i=0;i<tl;i++)
+        {
+          if (document.frm.liste[i].selected)
+          {
+            n+=1;
+          }
+          if(n==0){
+            alert("Veuillez choisir");
+          }
+          if(n>2){
+            alert("Veuillez choisir au maximum 2 choix");
+          }
+         
+        }
+
+
+      }
+    </script>
+  </head>
+<body> 
+<h1>INSCRIPTION</h1> 
+</br> </br> </br>
+<form name="frm" action="" method="post" class="form-example" onsubmit="return verif()">
+  <div class="form-example">
+    <label for="name">Nom et Prenom *: </label>
+    <input type="text" name="prenom" id="prenom" required>
+  </div>
+  <div class="form-example">
+  	<p>
+      <label for="name">CIN *: </label>
+      <input type="text" name="cin" id="cin" required>
+   </p>
+  </div>
+    <div class="form-example">
+    <p>
+      <label for="name">Adresse e-mail *: </label>
+      <input type="text" name="adresse" id="adresse" required>
+   </p>
+  </div>
+  <div class="form-example">
+     <p>
+         Niveau:
+         <input type="radio" name="rad" value="secondaire" id="secondaire" checked/> <label for="secondaire">Secondaire</label>
+         <input type="radio" name="rad" value="universitaire" id="universitaire" /> <label for="universitaire">Universitaire</label>
+         <input type="radio" name="rad" value="autre" id="autre" /> <label for="autre">Autre</label>
+     </p>
+   </div>
+  <div class="form-example">
+   	<p>
+      <label>Modules de formation:
+      <select multiple size="3" name="liste">
+        <optgroup label="formation">
+          <option value="Bureautique">Bureautique</option>
+          <option value="se">SE et Réseaux info</option>
+          <option value="tic">TIC</option>
+        </optgroup>
+
+      </select>
+      </label>
+   </p>
+  </div>
+  <div class="champ">
+    (*) Champs obligatoire
+  </div>
+</br>
+  <div class="form-example">
+    <input type="submit" value="Envoyer"><input type="reset" value="annuler">
+  </div>
+
+</form>
+</body> 
+</html> 
